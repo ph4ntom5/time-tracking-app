@@ -1,6 +1,7 @@
 import "./App.css";
 import styled from "styled-components";
 import { GlobalStyles } from "./styles/global";
+import UserNav from "./components/user_nav";
 
 const Wrapper = styled.section`
   background-color: var(--bg);
@@ -12,17 +13,7 @@ function App() {
       <GlobalStyles />
       <div className="App">
         <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <UserNav />
         </header>
       </div>
     </Wrapper>
