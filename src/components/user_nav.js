@@ -76,7 +76,7 @@ export default function userNav() {
           <UserPhoto src={UserImage} />
           <UserInfo>
             <h5>Report for</h5>
-            <p>Jeremmy Robson</p>
+            <p>Jeremy Robson</p>
           </UserInfo>
         </UserBg>
         <WrapperText>
