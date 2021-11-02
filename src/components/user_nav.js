@@ -3,6 +3,7 @@ import styled from "styled-components";
 import UserImage from "../images/image-jeremy.png";
 
 const Wrapper = styled.section`
+  margin-top: 10rem;
   background-color: var(--nav);
   width: 80%;
   height: 18rem;
