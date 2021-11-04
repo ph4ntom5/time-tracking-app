@@ -5,10 +5,11 @@ import { ReactComponent as Icon } from "../images/icon-ellipsis.svg";
 const Container = styled.section`
   border-radius: 1.5rem;
   background-color: var(--nav);
-  margin-top: 6rem;
-  width: 80vw;
-  height: 18rem;
+  width: 32rem;
+  height: 12rem;
   z-index: 52;
+  position: relative;
+  margin-top: -5.5rem;
   transition: all 0.6s ease;
   &:hover {
     background-color: #252a68;
@@ -19,18 +20,21 @@ const Container = styled.section`
 const IconWrapper = styled.section`
   background-color: ${(props) => props.color};
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   z-index: 1;
-  width: 80%;
+  width: 60%;
   height: 9rem;
   border-radius: 1.5rem;
-  position: absolute;
+  position: relative;
+  width: 100%;
 `;
 
 const TitleContainer = styled.section`
   display: flex;
   flex-direction: reverse-column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 0 4rem;
+  margin-top: 3rem;
 `;
 
 const Title = styled.span`
@@ -41,18 +45,23 @@ const Title = styled.span`
 
 const HoursContainer = styled.section`
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
+  flex-direction: row;
+  padding: 0 4rem;
+  justify-content: space-between;
+  margin-top: 1rem;
 `;
 
 const Hours = styled.span`
-  font-size: 2rem;
+  font-size: 2.8rem;
+  font-weight: 300;
+
   color: white;
   opacity: 0.9;
 `;
 
 const Last = styled.span`
   font-size: 1.2rem;
+  margin-top: 1rem;
   color: white;
   opacity: 0.9;
 `;
@@ -60,6 +69,16 @@ const Last = styled.span`
 export default function Card(props) {
   return (
     <>
+      <IconWrapper color={props.bgcolor}>
+        <props.icon
+          style={{
+            overflow: "hidden",
+            top: "-1rem",
+            right: "10px",
+            position: "absolute",
+          }}
+        />
+      </IconWrapper>
       <Container>
         <TitleContainer>
           <Title>{props.title}</Title>
@@ -70,16 +89,6 @@ export default function Card(props) {
           <Last>{props.last}</Last>
         </HoursContainer>
       </Container>
-      <IconWrapper color={props.bgcolor}>
-        <props.icon
-          style={{
-            overflow: "hidden",
-            top: "-.5rem",
-            right: "10px",
-            position: "absolute",
-          }}
-        />
-      </IconWrapper>
     </>
   );
 }

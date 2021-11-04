@@ -5,7 +5,7 @@ import UserImage from "../images/image-jeremy.png";
 const Wrapper = styled.section`
   margin-top: 10rem;
   background-color: var(--nav);
-  width: 80%;
+  width: 32rem;
   height: 18rem;
   border-radius: 1rem;
 `;
@@ -16,12 +16,22 @@ const WrapperText = styled.section`
   justify-content: center;
   margin-top: 1.5rem;
 
-  p {
+  .week {
+    color: white;
+    opacity: 0.8;
+  }
+
+  button {
     font-size: 1.6rem;
+    background: none;
+    border: none;
     opacity: 0.5;
     color: var(--highlight);
     padding: 0 2rem;
     cursor: pointer;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: all 0.6s ease;
 
     &:active {
       color: white;
@@ -81,9 +91,9 @@ export default function userNav() {
           </UserInfo>
         </UserBg>
         <WrapperText>
-          <p>Daily</p>
-          <p>Weekly</p>
-          <p>Monthly</p>
+          <button>Daily</button>
+          <button className="week">Weekly</button>
+          <button>Monthly</button>
         </WrapperText>
       </Wrapper>
     </>
