@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ReactComponent as Icon } from "../images/icon-ellipsis.svg";
+import { device } from "../styles/breakpoints.js";
 
 const Container = styled.section`
   border-radius: 1.5rem;
