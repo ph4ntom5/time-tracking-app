@@ -1,6 +1,6 @@
 # Frontend Mentor - Time Tracking Dashboard solution
 
-See the Front End Mentors challenge page - https://www.frontendmentor.io/challenges/interactive-pricing-component-t0m8PIyY8
+See the Front End Mentors challenge page - https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw
 
 ## Table of contents
 
