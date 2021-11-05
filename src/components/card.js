@@ -3,6 +3,11 @@ import styled from "styled-components";
 import { ReactComponent as Icon } from "../images/icon-ellipsis.svg";
 import { device } from "../styles/breakpoints.js";
 
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Container = styled.section`
   border-radius: 1.5rem;
   background-color: var(--nav);
@@ -12,6 +17,10 @@ const Container = styled.section`
   position: relative;
   margin-top: -5.5rem;
   transition: all 0.6s ease;
+  @media ${device.laptop} {
+    height: 19rem;
+    width: 24rem;
+  }
   &:hover {
     background-color: #252a68;
     cursor: pointer;
@@ -50,46 +59,60 @@ const HoursContainer = styled.section`
   padding: 0 4rem;
   justify-content: space-between;
   margin-top: 1rem;
+  @media ${device.laptop} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Hours = styled.span`
   font-size: 2.8rem;
   font-weight: 300;
-
   color: white;
   opacity: 0.9;
+  @media ${device.laptop} {
+    font-size: 5.6rem;
+  }
 `;
 
 const Last = styled.span`
   font-size: 1.2rem;
   margin-top: 1rem;
-  color: white;
+  color: #b6b9ee;
   opacity: 0.9;
+  @media ${device.laptop} {
+    color: #b6b9ee;
+    font-weight: 400;
+    font-size: 1.4rem;
+  }
 `;
 
 export default function Card(props) {
   return (
     <>
-      <IconWrapper color={props.bgcolor}>
-        <props.icon
-          style={{
-            overflow: "hidden",
-            top: "-1rem",
-            right: "10px",
-            position: "absolute",
-          }}
-        />
-      </IconWrapper>
-      <Container>
-        <TitleContainer>
-          <Title>{props.title}</Title>
-          <Icon />
-        </TitleContainer>
-        <HoursContainer>
-          <Hours>{props.hours}</Hours>
-          <Last>{props.last}</Last>
-        </HoursContainer>
-      </Container>
+      <Wrapper>
+        {" "}
+        <IconWrapper color={props.bgcolor}>
+          <props.icon
+            style={{
+              overflow: "hidden",
+              top: "-1rem",
+              right: "10px",
+              position: "absolute",
+            }}
+          />
+        </IconWrapper>
+        <Container>
+          <TitleContainer>
+            <Title>{props.title}</Title>
+            <Icon />
+          </TitleContainer>
+          <HoursContainer>
+            <Hours>{props.hours}</Hours>
+            <Last>{props.last}</Last>
+          </HoursContainer>
+        </Container>
+      </Wrapper>
     </>
   );
 }

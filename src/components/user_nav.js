@@ -9,8 +9,12 @@ const Wrapper = styled.section`
   width: 32rem;
   height: 18rem;
   border-radius: 1rem;
+  @media ${device.tablet} {
+    width: 92%;
+  }
   @media ${device.laptop} {
-    height: 48rem;
+    margin-top: 2.5rem;
+    height: 49rem;
     width: 26rem;
   }
 `;

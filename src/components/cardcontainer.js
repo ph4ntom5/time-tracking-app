@@ -7,12 +7,29 @@ import { ReactComponent as studyicon } from "../images/icon-study.svg";
 import { ReactComponent as excerciseicon } from "../images/icon-exercise.svg";
 import { ReactComponent as socialicon } from "../images/icon-social.svg";
 import { ReactComponent as selfcareicon } from "../images/icon-self-care.svg";
+import { device } from "../styles/breakpoints.js";
 
 const Wrapper = styled.section`
   display: flex;
-  max-width: 1000px;
   align-items: center;
   flex-direction: column;
+  padding: 0 3rem;
+
+  @media ${device.tablet} {
+    gap: 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 3rem;
+  }
+
+  @media ${device.laptop} {
+    gap: 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 3rem;
+  }
 `;
 export default function CardContainer() {
   return (
