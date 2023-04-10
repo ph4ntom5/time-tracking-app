@@ -22,7 +22,7 @@ const Container = styled.section`
     width: 24rem;
   }
   &:hover {
-    background-color: #252a68;
+    background-color: #303473;
     cursor: pointer;
   }
 `;
