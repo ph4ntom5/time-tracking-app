@@ -122,6 +122,11 @@ const WrapperText = styled.section`
 `;
 
 export default function userNav() {
+
+  const handleClick = (props) =>{
+    console.log("it works!!")
+  }
+
   return (
     <>
       <Wrapper>
@@ -133,7 +138,7 @@ export default function userNav() {
           </UserInfo>
         </UserBg>
         <WrapperText>
-          <button>Daily</button>
+          <button onClick={handleClick}>Daily</button>
           <button className="week">Weekly</button>
           <button>Monthly</button>
         </WrapperText>

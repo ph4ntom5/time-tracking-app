@@ -5,6 +5,7 @@ import UserNav from "./components/user_nav";
 import CardContainer from "./components/cardcontainer";
 import { device } from "./styles/breakpoints.js";
 
+
 const Wrapper = styled.section`
   background-color: var(--bg);
   display: flex;

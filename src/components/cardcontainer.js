@@ -8,6 +8,7 @@ import { ReactComponent as excerciseicon } from "../images/icon-exercise.svg";
 import { ReactComponent as socialicon } from "../images/icon-social.svg";
 import { ReactComponent as selfcareicon } from "../images/icon-self-care.svg";
 import { device } from "../styles/breakpoints.js";
+import data from "../data/data.json"
 
 const Wrapper = styled.section`
   display: flex;
@@ -31,50 +32,61 @@ const Wrapper = styled.section`
     padding: 0 3rem;
   }
 `;
+
 export default function CardContainer() {
+
+  const workHours = data.find(item => item.title === 'Work')
+  const playHours = data.find(item => item.title === 'Play')
+  const studyHours = data.find(item => item.title === 'Study')
+  const exerciseHours = data.find(item => item.title === 'Exercise')
+  const socialHours = data.find(item => item.title === 'Social')
+  const selfCarelHours = data.find(item => item.title === 'Self Care')
+  
   return (
     <>
       <Wrapper>
         <Card
           bgcolor="var(--work)"
           title="Work"
-          hours="32hrs"
-          last="Last Week - 36hrs"
+          hours={`${workHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${workHours.timeframes.weekly.previous} hrs`}
           icon={workicon}
-        ></Card>
+        >
+          
+        </Card>
         <Card
           bgcolor="var(--play)"
           title="Play"
-          hours="10hrs"
-          last="Last Week - 8hrs"
+          hours={`${playHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${workHours.timeframes.weekly.previous} hrs`}
           icon={playicon}
         ></Card>
         <Card
           bgcolor="var(--study)"
           title="Study"
-          hours="4hrs"
-          last="Last Week - 7hrs"
+          hours={`${studyHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${studyHours.timeframes.weekly.previous} hrs`}
           icon={studyicon}
         ></Card>
         <Card
           bgcolor="var(--excercise)"
           title="Excercise"
-          hours="4hrs"
-          last="Last Week - 5hrs"
+          hours={`${exerciseHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${exerciseHours.timeframes.weekly.previous} hrs`}
           icon={excerciseicon}
         ></Card>
         <Card
           bgcolor="var(--social)"
           title="Social"
-          hours="5hrs"
-          last="Last Week - 10hrs"
+          hours={`${socialHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${socialHours.timeframes.weekly.previous} hrs`}
           icon={socialicon}
         ></Card>
         <Card
           bgcolor="var(--self-care)"
           title="Self Care"
-          hours="2hrs"
-          last="Last Week - 2hrs"
+          hours={`${selfCarelHours.timeframes.weekly.current} hrs`}
+          last={`Last Week - ${selfCarelHours.timeframes.weekly.previous} hrs`}
           icon={selfcareicon}
         ></Card>
       </Wrapper>
