@@ -2,10 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { ReactComponent as Icon } from "../images/icon-ellipsis.svg";
 import { device } from "../styles/breakpoints.js";
+import work from "../images/icon-work.svg";
+import play from "../images/icon-play.svg";
+import study from "../images/icon-study.svg";
+import exercise from "../images/icon-exercise.svg";
+import social from "../images/icon-social.svg";
+import selfCare from "../images/icon-self-care.svg";
 
 const Wrapper = styled.section`
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  @media ${device.laptop} {
+    margin-top: 1.5rem;
+  }
 `;
 
 const Container = styled.section`
@@ -17,6 +31,7 @@ const Container = styled.section`
   position: relative;
   margin-top: -5.5rem;
   transition: all 0.6s ease;
+
   @media ${device.laptop} {
     height: 19rem;
     width: 24rem;
@@ -59,6 +74,7 @@ const HoursContainer = styled.section`
   padding: 0 4rem;
   justify-content: space-between;
   margin-top: 1rem;
+
   @media ${device.laptop} {
     display: flex;
     flex-direction: column;
@@ -88,12 +104,37 @@ const Last = styled.span`
 `;
 
 export default function Card(props) {
+  const icons = [work, play, study, exercise, social, selfCare];
+  const IconColors = {
+    work: "hsl(15, 100%, 70%)",
+    play: "hsl(195, 78%, 65%)",
+    study: "hsl(348, 100%, 68%)",
+    excercise: "hsl(145, 58%, 55%)",
+    social: "hsl(264, 64%, 52%)",
+    selfcare: "hsl(43, 84%, 65%)",
+  };
+
+  const colors = [
+    IconColors.work,
+    IconColors.play,
+    IconColors.study,
+    IconColors.excercise,
+    IconColors.social,
+    IconColors.selfcare,
+  ];
+  const convertPeriod =
+    props.period === "Daily"
+      ? "Yesterday"
+      : props.period === "Weekly"
+      ? "Last week"
+      : "Last month";
   return (
     <>
       <Wrapper>
-        {" "}
-        <IconWrapper color={props.bgcolor}>
-          <props.icon
+        <IconWrapper color={colors[props.id]}>
+          <img
+            src={icons[props.id]}
+            alt="Card Icon"
             style={{
               overflow: "hidden",
               top: "-1rem",
@@ -108,8 +149,10 @@ export default function Card(props) {
             <Icon />
           </TitleContainer>
           <HoursContainer>
-            <Hours>{props.hours}</Hours>
-            <Last>{props.last}</Last>
+            <Hours>{props.current}hrs</Hours>
+            <Last>
+              {convertPeriod} - {props.previous} Hours
+            </Last>
           </HoursContainer>
         </Container>
       </Wrapper>

@@ -10,9 +10,10 @@ const Wrapper = styled.section`
   height: 18rem;
   border-radius: 1rem;
   @media ${device.tablet} {
-    width: 92%;
+    width: 85%;
   }
   @media ${device.laptop} {
+    margin-right: 1.5rem;
     margin-top: 2.5rem;
     height: 49rem;
     width: 26rem;
@@ -121,12 +122,8 @@ const WrapperText = styled.section`
   }
 `;
 
-export default function userNav() {
-
-  const handleClick = (props) =>{
-    console.log("it works!!")
-  }
-
+export default function UserNav(props) {
+  const periods = ["Daily", "Weekly", "Monthly"];
   return (
     <>
       <Wrapper>
@@ -138,9 +135,13 @@ export default function userNav() {
           </UserInfo>
         </UserBg>
         <WrapperText>
-          <button onClick={handleClick}>Daily</button>
-          <button className="week">Weekly</button>
-          <button>Monthly</button>
+          {periods.map((item) => {
+            return (
+              <button key={item} id={item} onClick={props.handleClick}>
+                {item}
+              </button>
+            );
+          })}
         </WrapperText>
       </Wrapper>
     </>
